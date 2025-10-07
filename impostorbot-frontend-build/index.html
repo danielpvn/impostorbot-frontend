@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jogo do Impostor – Painel</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="brand">
+          <div class="logo">👀</div>
+          <div>
+            <h1>Jogo do Impostor – Painel</h1>
+            <p class="hint">Conectado ao servidor oficial ✅ <span id="server">impostorbot-backend.onrender.com</span></p>
+          </div>
+        </div>
+        <div class="count"><span id="count">0</span> jogadores</div>
+      </header>
+
+      <main class="main">
+        <section class="card">
+          <!-- Bloco de autorização WhatsApp -->
+          <div class="auth-block" style="background:#ECFDF5;border:1px solid #A7F3D0;border-radius:12px;padding:14px;margin-bottom:16px;text-align:center;">
+            <p style="color:#064E3B;font-size:14px;font-weight:500;margin-bottom:10px;">
+              Antes de jogar, clique abaixo para enviar a mensagem de autorização ao número do bot no WhatsApp 👇
+            </p>
+            <a
+              href="https://api.whatsapp.com/send/?phone=%2B14155238886&text=join+war-memory&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn success"
+              style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:#10B981;border:1px solid #10B981;color:white;font-weight:600;border-radius:12px;text-decoration:none;box-shadow:0 2px 6px rgba(16,185,129,0.3);"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M12 .5C5.7.5.5 5.7.5 12c0 2 .5 4 1.5 5.7L.5 23.5l5.9-1.5C7.9 22.5 10 23 12 23c6.3 0 11.5-5.2 11.5-11.5S18.3.5 12 .5zM12 21c-1.8 0-3.5-.4-5-1.2l-.4-.2-3.5.9.9-3.4-.2-.4C3 15.5 2.5 13.8 2.5 12 2.5 6.8 6.8 2.5 12 2.5S21.5 6.8 21.5 12 17.2 21 12 21zm5.3-6.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.5-1.7-.2-.3 0-.5.1-.7.1-.1.3-.3.4-.5.1-.1.1-.2.2-.3.1-.1.1-.3 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1.1 2.7 1.2 2.9c.1.1 2.2 3.3 5.3 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.5z"/>
+              </svg>
+              Autorizar
+            </a>
+          </div>
+          <h2>Adicionar jogadores</h2>
+
+          <div class="grid">
+            <div class="field">
+              <label>Nome</label>
+              <input id="nome" placeholder="Ex.: DanDan" />
+            </div>
+            <div class="field">
+              <label>WhatsApp</label>
+              <input id="fone" placeholder="(99) 99999-9999" maxlength="15" />
+              <small id="foneStatus" class="muted"></small>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="btnAdd" class="btn primary">➕ Adicionar jogador</button>
+            <button id="btnClear" class="btn">Limpar lista</button>
+          </div>
+
+          <div class="players">
+            <h3>Jogadores</h3>
+            <div id="list" class="list empty">Nenhum jogador adicionado ainda.</div>
+          </div>
+
+          <div class="footer">
+            <input id="tema" placeholder="Tema opcional (ex.: comidas, escola...)" />
+            <button id="btnStart" class="btn success">🚀 Iniciar rodada</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Config da API (fixa para produção)
+      window.API_BASE = "https://impostorbot-backend.onrender.com";
+    </script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
